@@ -1,0 +1,37 @@
+page-client-details {
+
+}
+.client_heading   {
+    height: 45vh;
+    background-color: #2f64ff;
+    color: #fff;
+}
+// .segment-md .segment-button {
+//     -webkit-flex: 1;
+//     -ms-flex: 1;
+//     flex: 1;
+//     padding: 5px;
+//     /* width: 0; */
+//     height: 6rem;
+//     /* border-bottom-width: 2px; */
+//     border-bottom-style: solid;
+//     border-bottom-color: rgba(0, 0, 0, 0.1);
+//     font-size: 1.4rem;
+//     font-weight: bolder;
+//     line-height: 7rem !important;
+//     text-transform: capitalize;
+//     color: #fff !important;
+//     background-color: transparent;
+//     opacity: 1;
+//     transition: 100ms all linear;
+// }
+.segment-button.segment-activated {
+    border-color: #fff !important;
+    opacity: 1;
+}
+.segment_card_android   {
+    line-height: 7rem !important;
+    color:#fff !important;
+    font-size: 1.4rem !important;
+    border-bottom-color:#2f64ff !important;
+}

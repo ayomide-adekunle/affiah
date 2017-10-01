@@ -1,0 +1,102 @@
+<!--
+  Generated template for the ProjectList page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar hideBackButton>
+        <ion-buttons left (click)="goHome()">
+            <button ion-button icon-only>
+			<ion-icon name="home"></ion-icon>
+		</button>
+        </ion-buttons>
+        <ion-title>Projects</ion-title>
+        <ion-buttons end (click)="addProject()">
+            <button ion-button icon-only color="royal">
+        <ion-icon name="add"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding style="overflow-y: scroll;">
+
+    <!--<ion-searchbar *ngIf="projectList.length>0" (ionInput)="getItems($event)"></ion-searchbar>-->
+    <ion-row *ngIf="projectList.length>0">
+        <ion-col class="label_project">
+            <p class="not_started">{{projectStatus.notStarted}}</p>
+            <p class="not_started_label">NOT STARTED</p>
+        </ion-col>
+        <ion-col class="label_project">
+            <p class="ongoing">{{projectStatus.onGoing}}</p>
+            <p class="ongoing_label">ONGOING</p>
+        </ion-col>
+        <ion-col class="label_project">
+            <p class="completed">{{projectStatus.completed}}</p>
+            <p class="completed_label">COMPLETED</p>
+        </ion-col>
+    </ion-row>
+    <ion-list *ngIf="projectList.length>0" style="overflow-y: scroll;height: 80%;">
+        <ion-item *ngFor="let project of projectList" (click)="ProDetails(project)">
+            <ion-row>
+                <ion-col>
+                    <p style="font-size: 15px;font-weight: bold;">{{ project.name }}</p>
+                    <!--<p style="color:#999;font-size: 12px;">{{project._id}}</p>-->
+                    <p style="color:#999;font-size: 12px;">{{ project.client_name }} </p>
+                </ion-col>
+                <ion-col>
+                    <p style="font-size: 12px;">Start: {{project.start_date}}</p>
+                    <p style="font-size: 12px;">End: {{project.end_date}} </p>
+                    <ion-icon name="ios-radio-button-on" class="status_icon" [ngStyle]="{'color': project.color}"> </ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="projectList.length==0">
+        <p class="image_container">
+            <img src="assets/svg/project.svg" class="image_empty" />
+        </p>
+        <p class="empty_text">You can add project to your existing clients. Click on the + sign on the top-right corner of your screen to add your first projects
+        </p>
+    </div>
+
+</ion-content>
+<ion-footer>
+
+    <ion-toolbar>
+        <div>
+            <ion-segment [(ngModel)]="tabs_content" (ionChange)="onSegmentChange()">
+                <ion-segment-button value="clients">
+                    <img src="assets/svg/client_white.svg" style="width:30%;margin:auto" />
+                    <p style="margin-top:-3vh">Client</p>
+                </ion-segment-button>
+                <ion-segment-button value="projects">
+                    <img src="assets/svg/project_white.svg" style="width:30%;margin:auto" />
+                    <p style="margin-top:-3vh">Project</p>
+
+                </ion-segment-button>
+                <ion-segment-button value="finances">
+                    <img src="assets/svg/finance_white.svg" style="width:30%;margin:auto" />
+                    <p style="margin-top:-3vh">Finance</p>
+
+                </ion-segment-button>
+                <ion-segment-button value="bulk_sms">
+                    <img src="assets/svg/bulk_white.svg" style="width:30%;margin:auto" />
+                    <p style="margin-top:-3vh">Marketing</p>
+                </ion-segment-button>
+                <ion-segment-button value="notes">
+                    <img src="assets/svg/note.svg" style="width:30%;margin:auto" />
+                    <p style="margin-top:-3vh">Notes</p>
+
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+    </ion-toolbar>
+
+
+</ion-footer>

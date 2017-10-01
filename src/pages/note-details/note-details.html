@@ -1,0 +1,54 @@
+<!--
+  Generated template for the NoteDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Note Details</ion-title>
+        <ion-buttons end (click)=editNote(noteInfo)>
+            <button ion-button icon-only color="royal">
+        <ion-icon name="create"></ion-icon>
+           </button>
+        </ion-buttons>
+        <ion-buttons end (click)="deleteNote(noteInfo)">
+            <button ion-button icon-only color="royal">
+        <ion-icon name="trash"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header class="note_title">
+            Title
+        </ion-card-header>
+        <ion-card-content>
+            {{noteInfo.title}}
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header class="note_title">
+            Description
+        </ion-card-header>
+        <ion-card-content>
+            {{noteInfo.desc}}
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header class="note_title">
+            Project
+        </ion-card-header>
+        <ion-card-content *ngIf="noteInfo.projects.length!=0">
+            {{noteInfo.projects.name}}
+        </ion-card-content>
+        <ion-card-content *ngIf="noteInfo.projects.length==0">
+            Not added to a project
+        </ion-card-content>
+    </ion-card>
+</ion-content>

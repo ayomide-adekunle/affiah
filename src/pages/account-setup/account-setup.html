@@ -1,0 +1,37 @@
+<!--
+  Generated template for the AccountSetup page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Account Setup</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <p class="account_text">Please enter the amount your business currently has.</p>
+    <ion-list>
+        <p></p>
+        <ion-item>
+            <ion-label color="primary">Cash in Bank: </ion-label>
+            <ion-input type="number" [(ngModel)]="account.bank"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Cash at hand: </ion-label>
+            <ion-input type="number" [(ngModel)]="account.hand"></ion-input>
+        </ion-item>
+        <p></p>
+        <div class="button-center">
+            <button ion-button class="button_login" (click)="submitAccount(account)">Submit</button>
+        </div>
+        <p></p>
+
+
+    </ion-list>
+
+</ion-content>

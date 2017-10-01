@@ -1,0 +1,70 @@
+<!--
+  Generated template for the BulksmsList page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-buttons left (click)="goHome()">
+            <button ion-button icon-only>
+			<ion-icon name="home"></ion-icon>
+		</button>
+        </ion-buttons>
+        <ion-title>Sent SMS</ion-title>
+        <ion-buttons end (click)="newMessage()">
+            <button ion-button icon-only color="royal">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <!--<ion-searchbar *ngIf="smsList.length>0" (ionInput)="getItems($event)"></ion-searchbar>-->
+    <ion-list *ngIf="smsList.length>0">
+        <ion-item *ngFor="let sms of smsList" (click)="deleteSms(sms)">
+            <p style="font-size: 17px;font-weight: bold;">{{ sms.sender }}</p>
+            <p>
+                <ion-row style="width: 60%;">
+                    <ion-col style="color:#999">
+                        {{sms.to.length}} Sent
+                    </ion-col>
+                    <ion-col style="color:#999">
+                        {{sms.Date | date: 'dd/MM/yyyy H:mm'}}
+                    </ion-col>
+                </ion-row>
+            </p>
+
+        </ion-item>
+    </ion-list>
+    <div *ngIf="smsList.length==0">
+        <p class="image_container">
+            <img src="assets/svg/bulk.svg" class="image_empty_sms" />
+        </p>
+        <p class="empty_text">You have not sent any message, use the + sign to send your first bulk sms to your customers.
+        </p>
+    </div>
+
+</ion-content>
+<ion-footer>
+
+    <ion-toolbar>
+        <div>
+            <ion-segment [(ngModel)]="tabs_content" (ionChange)="onSegmentChange()">
+                <ion-segment-button value="bulk_sms">
+                    <img src="assets/svg/bulk_white.svg" style="width:10%;" />
+                    <p style="margin-top:-3vh">Bulk SMS</p>
+                </ion-segment-button>
+                <ion-segment-button value="share_files">
+                    <img src="assets/svg/share_white.svg" style="width:20%;" />
+                    <p style="margin-top:-3vh">Share File</p>
+                </ion-segment-button>
+
+            </ion-segment>
+        </div>
+    </ion-toolbar>
+
+
+</ion-footer>

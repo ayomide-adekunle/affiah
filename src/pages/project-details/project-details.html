@@ -1,0 +1,147 @@
+<!--
+  Generated template for the ProjectDetails page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="client_heading ">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+		          <ion-icon name="arrow-back"></ion-icon>
+		  </button>
+        </ion-buttons>
+        <ion-title>{{project.name}}</ion-title>
+        <ion-buttons end (click)=editProject(project)>
+            <button ion-button icon-only color="royal">
+        <ion-icon name="create"></ion-icon>
+           </button>
+        </ion-buttons>
+        <ion-buttons end (click)="deleteProject(project)">
+            <button ion-button icon-only color="royal">
+        <ion-icon name="trash"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+    <div style="padding-left: 15vw;">
+
+        <p>
+            <ion-icon name="md-calendar" style="font-size: 22px;padding-right: 10px;"></ion-icon>Start Date:
+            <span style="margin-left:10px">{{project.start_date}}</span>
+        </p>
+
+        <p style="padding-top: 2vh;">
+            <ion-icon name="md-calendar" style="font-size: 22px;padding-right: 10px;"></ion-icon>End Date:
+            <span style="margin-left:10px">{{project.end_date}}</span>
+        </p>
+
+        <p style="padding-top: 2vh;">
+            <ion-icon name="md-repeat" style="font-size: 22px;padding-right: 10px;"></ion-icon>Status:
+            <span style="margin-left:10px;border-radius:3px;font-size: 12px;padding: 5px;" [ngStyle]="{'background-color':selectColor(project.status)}">{{project.status}}</span>
+            <span (click)="changeStatus(project)"> <ion-icon name="arrow-round-forward"></ion-icon> Change Status</span>
+        </p>
+
+
+    </div>
+    <div padding>
+        <ion-segment [(ngModel)]="projects" style="position: absolute;left: 0; bottom: 0;">
+            <ion-segment-button value="expenses" class="segment_card_android">
+                EXPENSES
+            </ion-segment-button>
+            <ion-segment-button value="invoices" class="segment_card_android">
+                INVOICES
+            </ion-segment-button>
+            <ion-segment-button value="tasks" class="segment_card_android">
+                TASKS
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+</ion-header>
+
+
+<ion-content padding overflow-scroll="true">
+    <div [ngSwitch]="projects">
+        <ion-list *ngSwitchCase="'expenses'" style="overflow-y: scroll;height: 50vh;">
+            <p *ngIf="project.expenses==0" style="text-align:center"> No expense for this project </p>
+            <!--<ion-item *ngFor="let expense of project.expenses" (click)="getDetails(expense)">-->
+            <ion-item *ngFor="let expense of project.expenses">
+                <ion-row>
+                    <ion-col>
+                        <p style="font-size: 15px;font-weight: bold;">{{ expense.item }}</p>
+                        <!--<p style="color:#999;font-size: 12px;">{{project._id}}</p>-->
+
+                    </ion-col>
+                    <ion-col>
+                        <p style="color:#999;font-size: 12px;"><span style="font-family: sans-serif;">&#8358;&nbsp;</span>{{ formatNumber(expense.amount) }} </p>
+
+                    </ion-col>
+                    <ion-col>
+                        <p style="font-size: 12px;">Start: {{expense.date}}</p>
+                    </ion-col>
+
+                </ion-row>
+
+            </ion-item>
+            <ion-fab right bottom (click)="addExpense()">
+                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            </ion-fab>
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'invoices'" style="overflow-y: scroll;height: 50vh;">
+            <p *ngIf="project.invoices==0" style="text-align:center"> No invoice for this project yet</p>
+            <ion-item *ngFor="let invoice of project.invoices" (click)="invoiceDetails(invoice)" style="overflow-y: scroll;">
+                <!--<ion-item *ngFor="let invoice of project.invoices" style="overflow-y: scroll;">-->
+                <ion-row>
+                    <ion-col>
+                        <p style="font-size: 15px;font-weight: bold;">{{ invoice.project.name}}</p>
+                        <!--<p style="color:#999;font-size: 12px;">{{project._id}}</p>-->
+                        <p style="color:#999;font-size: 12px;">Amount Paid: <span style="font-family: sans-serif;">&#8358;&nbsp;</span>{{formatNumber(invoice.amount_paid)}} </p>
+                        <p style="color:#999;font-size: 12px;">Date: {{invoice.start_date}} </p>
+
+                    </ion-col>
+                    <!--<ion-col>
+                        <p style="float: right;color: green;font-size:20px;"><span style="font-family: sans-serif;">&#8358;&nbsp;</span>{{formatNumber(invoice.amount)}}</p>
+                    </ion-col>-->
+                </ion-row>
+
+            </ion-item>
+            <ion-fab right bottom (click)="newInvoice()">
+                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            </ion-fab>
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'tasks'" style="overflow-y: scroll;height:50vh">
+            <p *ngIf="project.tasks==0" style="text-align:center"> No task for this project yet</p>
+            <ion-card *ngFor="let task of project.tasks" style="overflow-y: scroll;">
+                <ion-card-header class="income_title">
+                    {{ task.assign_to }}
+                </ion-card-header>
+                <ion-card-content>
+                    <!--<ion-list>
+                        <ion-item>
+                            <ion-icon name="paper" class="task_icon"></ion-icon>{{ task.desc }}</ion-item>
+                        <ion-item>
+                            <ion-icon name="time" class="task_icon"></ion-icon>{{ task.date }}</ion-item>
+                    </ion-list>-->
+                    <button ion-item>
+                        <ion-icon name="paper" class="task_icon"></ion-icon>
+                        <span class="task_details">{{ task.desc }}</span>
+                    </button>
+                    <hr/>
+                    <button ion-item>
+                        <ion-icon name="time" class="task_icon"></ion-icon>
+                        <span class="task_details">{{ task.date }}</span>
+                    </button>
+                </ion-card-content>
+            </ion-card>
+            <ion-fab right bottom (click)="addTask(project)">
+                <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            </ion-fab>
+
+        </ion-list>
+
+    </div>
+
+</ion-content>

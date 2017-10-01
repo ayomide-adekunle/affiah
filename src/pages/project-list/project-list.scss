@@ -1,0 +1,42 @@
+page-project-list {
+
+}
+.label_project  {
+    text-align: center;
+}
+.not_started    {
+    color: red;
+    font-size: 50px;
+    margin-top: -1vh;
+}
+.not_started_label  {
+    margin-top: -7vh;
+    font-size: 10px;
+    color: #f53d3d;
+}
+.ongoing    {
+    color: yellow;
+    font-size: 50px;
+    margin-top: -1vh;
+}
+.ongoing_label  {
+    margin-top: -7vh;
+    font-size: 10px;
+    color: yellow;
+}
+.completed    {
+    color: green;
+    font-size: 50px;
+    margin-top: -1vh;
+}
+.completed_label  {
+    margin-top: -7vh;
+    font-size: 10px;
+    color: green;
+}
+.status_icon    {
+    margin-top: -5.3vh;
+    position: absolute;
+    margin-left: 32vw;
+    font-size: 25px;
+}

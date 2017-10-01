@@ -1,0 +1,74 @@
+<!--<ion-header>
+    <ion-navbar>
+        <ion-title>Slides</ion-title>
+    </ion-navbar>
+</ion-header>-->
+
+<!--<ion-content [ngStyle]="{'background-color':color}">-->
+<ion-content>
+
+    <ion-slides pager="true" (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+            <div style="height: 55vh;background-color:#d6faff;text-align:center;color:#fff; margin: 0 auto;">
+                <img src="assets/img/slide1.png" class="logo_walk">
+            </div>
+            <div class="slide1">
+                <div class="slide1_text">
+                    <h1><b>Welcome to Affiah </b></h1>
+                    <p style="font-size: 15px; text-align: justify;margin-right:35px">{{text1}}</p>
+                </div>
+            </div>
+
+        </ion-slide>
+        <ion-slide>
+            <div style="height:55%;background-color:#44c4ff;text-align:center;color:#fff; margin: 0 auto;">
+                <img src="assets/img/slide2.png" class="logo_walk_c">
+            </div>
+            <div class="slide2">
+                <div class="slide1_text">
+                    <h1><b>Generate Business Reports</b></h1>
+                    <p style="font-size: 15px; text-align: justify;margin-right:35px"> {{text2}}</p>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div style="height:55%;background-color:#d6faff;text-align:center;color:#fff;margin: 0 auto;">
+                <img src="assets/img/slide3.png" class="logo_walk3">
+            </div>
+            <div class="slide3">
+                <div class="slide1_text">
+                    <h1><b> Manage Clients And Projects</b></h1>
+                    <p style="font-size: 15px; text-align: justify;margin-right:35px">{{text3}}</p>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div style="height:55%;background-color:#d6faff;text-align:center;color:#fff;margin: 0 auto;">
+                <img src="assets/img/slide4.png" class="logo_walk4">
+            </div>
+            <div class="slide4">
+                <div class="slide1_text">
+                    <h1><b>Track Income And Expenses</b></h1>
+                    <p style="font-size: 15px; text-align: justify;margin-right:35px">{{text4}}</p>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+    <hr/>
+
+</ion-content>
+<!--<div class="bar bar-footer">
+    <hr style="width:100%;position:fixed" /> <br/>
+    <div class="row">
+        <p class="col" id="skip_tour" (click)="closeTour()">SKIP</p>
+
+        <p (click)="nextSlide()" id="tour_next" ng-show="slideIndex != 4"><i class="icon ion-chevron-right"></i></p>
+        <p id="tour_done" (click)="closeTour()" ng-show="slideIndex == 4">DONE
+        </p>
+    </div>
+</div>-->
+<ion-footer class="slider_footer">
+    <!--<hr class="hr" />-->
+    <p [hidden]="slideIndex == 3" class="done" (click)="nextSlide()">Next</p>
+    <p [hidden]="slideIndex != 3" class="done" (click)="continue()">Done </p>
+</ion-footer>

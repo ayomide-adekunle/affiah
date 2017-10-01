@@ -1,0 +1,8 @@
+{
+  "name": "E-Profit",
+  "app_id": "67ccdff1",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

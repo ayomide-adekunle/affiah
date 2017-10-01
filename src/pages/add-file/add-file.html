@@ -1,0 +1,127 @@
+<!--
+  Generated template for the AddFilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>New File</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="royal">
+            <ion-icon name="ios-information-circle-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="overflow-y: scroll;">
+    <div *ngIf="icon=='picture_black.svg'">
+        <div *ngIf="imgUrl" class="img_file">
+            <img [src]="imgUrl" style="width:90%" />
+            <ion-list>
+                <ion-item>
+                    <ion-label color="primary">Select Client</ion-label>
+                    <ion-select [(ngModel)]="msg.client_camera" (ionChange)="onSelectChange($event)" multiple="true">
+                        <ion-option value="selectAll" *ngIf="clientList.length>0">Select All</ion-option>
+                        <ion-option [value]="client" *ngFor="let client of clientList">{{client.company}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Title</ion-label>
+                    <ion-input type="text" [(ngModel)]="msg.title_camera"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Description</ion-label>
+                    <ion-input type="text" [(ngModel)]="msg.desc_camera"></ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-row>
+                <ion-col style="width: 10px;" (click)="sendEmail(msg,'camera')">
+                    <button ion-button icon-left>
+                        <ion-icon name="mail"></ion-icon>
+                        Send as Email
+                    </button>
+                </ion-col>
+                <ion-col (click)="shareFile(icon)">
+                    <button ion-button icon-left>
+                        <ion-icon name="close-circle"></ion-icon>
+                        New Picture
+                    </button>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div *ngIf="!imgUrl" class="home_file" (click)="shareFile(icon)">
+            <img src="assets/svg/{{icon}}" style="width:30%" />
+            <p style="font-size: 20px;">Press here</p>
+        </div>
+    </div>
+    <div *ngIf="icon=='select_black.svg'">
+        <div *ngIf="selectUrl" class="img_file">
+            <img [src]="selectUrl" style="width:90%" />
+            <ion-list>
+                <ion-item>
+                    <ion-label color="primary">Select Client: </ion-label>
+                    <ion-select [(ngModel)]="msg.client_select" (ionChange)="onSelectChange($event)" multiple="true">
+                        <ion-option value="selectAll" *ngIf="clientList.length>0">Select All</ion-option>
+                        <ion-option [value]="client" *ngFor="let client of clientList">{{client.company}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Title: </ion-label>
+                    <ion-input type="text" [(ngModel)]="msg.title_select"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Description: </ion-label>
+                    <ion-input type="text" [(ngModel)]="msg.desc_select"></ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-row>
+                <ion-col style="width: 10px;" (click)="sendEmail(msg,'select')">
+                    <button ion-button icon-left>
+                        <ion-icon name="mail"></ion-icon>
+                        Send as Email
+                    </button>
+                </ion-col>
+                <ion-col (click)="shareFile(icon)">
+                    <button ion-button icon-left>
+                        <ion-icon name="close-circle"></ion-icon>
+                        New Picture
+                    </button>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div *ngIf="!selectUrl" class="home_file" (click)="shareFile(icon)">
+            <img src="assets/svg/{{icon}}" style="width:30%" />
+            <p style="font-size: 20px;">Press here</p>
+        </div>
+    </div>
+
+</ion-content>
+<!--<ion-footer>
+    <ion-toolbar>
+        <div>
+            <ion-segment [(ngModel)]="tabs_content" (ionChange)="onSegmentChange()">
+                <ion-segment-button value="picture">
+                    <img src="assets/svg/picture.svg" style="width:15%" />
+                    <p style="margin-top:-3vh">Take Picture</p>
+                </ion-segment-button>
+                <ion-segment-button value="select">
+                    <img src="assets/svg/select.svg" style="width:15%;" />
+                    <p style="margin-top:-3vh">Select Picture</p>
+                </ion-segment-button>
+                <ion-segment-button value="video">
+                    <img src="assets/svg/video.svg" style="width:30%;" />
+                    <p style="margin-top:-3vh">Share Video</p>
+                </ion-segment-button>
+                <ion-segment-button value="audio">
+                    <img src="assets/svg/audio.svg" style="width:30%;" />
+                    <p style="margin-top:-3vh">Share Audio</p>
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+    </ion-toolbar>
+</ion-footer>-->

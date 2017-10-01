@@ -1,0 +1,97 @@
+<!--
+  Generated template for the Register page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+    <ion-navbar>
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content padding>
+    <div class="startup_img">
+        <img src="assets/img/logo.png" class="logo_img">
+    </div>
+    <ion-slides class="slide_v">
+        <ion-slide style="overflow-y: scroll;">
+            <p class="welcome">Welcome</p>
+            <h4 class="register_text">Sign in to continue</h4>
+            <ion-list>
+                <p></p>
+                <ion-item>
+                    <ion-label color="primary">Email: </ion-label>
+                    <ion-input type="email" [(ngModel)]="login_data.email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Password: </ion-label>
+                    <ion-input type="password" [(ngModel)]="login_data.password"></ion-input>
+                </ion-item>
+                <p></p>
+                <div class="button-center">
+                    <button ion-button class="button_login" (click)="doLogin(login_data)">Submit</button>
+                </div>
+
+                <p class="forgot_d_l">Don't have account yet?
+                    <span class="global_color" (click)="goToSlide2()">Register</span>
+                </p>
+
+
+            </ion-list>
+        </ion-slide>
+
+        <ion-slide style="overflow-y: scroll;">
+            <h2 class="register_text">Register</h2>
+            <ion-list>
+                <p> </p>
+
+
+                <ion-item>
+                    <ion-label color="primary">Email: </ion-label>
+                    <ion-input type="email" [(ngModel)]="reg_data.email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Password: </ion-label>
+                    <ion-input type="password" [(ngModel)]="reg_data.password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Phone: </ion-label>
+                    <ion-input type="tel" [(ngModel)]="reg_data.phone"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary">Full Name: </ion-label>
+                    <ion-input type="text" [(ngModel)]="reg_data.fullname"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label color="primary">Business Name: </ion-label>
+                    <ion-input type="text" [(ngModel)]="reg_data.biz_name"></ion-input>
+                </ion-item>
+
+                <p></p>
+                <div class="button-center">
+                    <button ion-button class="button_login" (click)="doReg(reg_data)">Submit</button>
+                </div>
+                <p class="forgot_d_l">Already have account?
+                    <span class="global_color" (click)="goToSlide1()">Login</span>
+                </p>
+
+
+            </ion-list>
+        </ion-slide>
+
+
+
+        <ion-slide>
+            Forgot Password Page
+        </ion-slide>
+
+    </ion-slides>
+
+
+
+</ion-content>

@@ -1,0 +1,123 @@
+<ion-header class="home_heading">
+    <br/>
+    <div class="account_head" *ngFor="let user of user_data">
+
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.biz_name}} <span style="float:right" (click)="openNotification()"><ion-icon name="notifications"></ion-icon> &nbsp;&nbsp;&nbsp;</span></p>
+    </div>
+
+    <!--<div class="home_name" *ngFor="let user of user_data">{{user.biz_name}}</div>-->
+    <div class="startup_img">
+        <img src="assets/img/logo.png" class="logo_icon">
+    </div>
+    <!--<div *ngFor="let accountDetail of accountDetails">
+        <p>{{formatNumber(accountDetail.hand)}}</p>
+    </div>-->
+    <div class="account_label">
+        <ion-row *ngFor="let accountDetail of accountDetails">
+            <ion-col>
+                <p class="account_title">Cash in bank</p>
+                <p class="account_value"><span style="font-family: sans-serif;">&#8358;&nbsp;</span>{{formatNumber(accountDetail.bank)}}</p>
+            </ion-col>
+            <ion-col>
+                <p class="account_title"> Cash at hand</p>
+                <p class="account_value"><span style="font-family: sans-serif;">&#8358;&nbsp;</span>{{formatNumber(accountDetail.hand)}}</p>
+
+            </ion-col>
+        </ion-row>
+    </div>
+
+</ion-header>
+<ion-content padding>
+    <div style="z-index:10;margin-top: -10vh;">
+        <ion-row>
+            <ion-col (click)="navigateTo(1)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <img src="assets/svg/client.svg" style="width:28%;margin:auto" />
+                        </ion-card-header>
+                        <ion-card-content>
+                            CLIENTS
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+
+            <ion-col (click)="navigateTo(2)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <!--<ion-icon name="people" style="font-size:12vw"></ion-icon>-->
+                            <img src="assets/svg/project.svg" style="width:30%;margin:auto" />
+
+                        </ion-card-header>
+                        <ion-card-content>
+                            PROJECTS
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col (click)="navigateTo(5)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <img src="assets/svg/finance.svg" style="width:30%;margin:auto" />
+                        </ion-card-header>
+                        <ion-card-content>
+                            MONEY
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+
+            <ion-col (click)="navigateTo(3)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <!--<ion-icon name="people" style="font-size:12vw"></ion-icon>-->
+                            <img src="assets/svg/market.svg" style="width:30%;margin:auto" />
+
+                        </ion-card-header>
+                        <ion-card-content>
+                            MARKETING
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col (click)="navigateTo(6)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <img src="assets/svg/report.svg" style="width:30%;margin:auto" />
+                        </ion-card-header>
+                        <ion-card-content>
+                            NOTES
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+
+            <ion-col (click)="navigateTo(4)">
+                <ion-card class="account_card">
+                    <div class="dash_logo">
+                        <ion-card-header>
+                            <!--<ion-icon name="people" style="font-size:12vw"></ion-icon>-->
+                            <img src="assets/svg/help.svg" style="width:18%;margin:auto" />
+
+                        </ion-card-header>
+                        <ion-card-content>
+                            HELP
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </div>
+
+</ion-content>

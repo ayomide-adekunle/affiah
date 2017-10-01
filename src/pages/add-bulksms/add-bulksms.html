@@ -1,0 +1,54 @@
+<!--
+  Generated template for the BulksmsDetails page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>New SMS</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="royal">
+            <ion-icon name="ios-information-circle-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="overflow-y: scroll;">
+    <div>
+        <p class="add_title">NEW CAMPAIGN</p>
+    </div>
+    <p></p>
+    <ion-item>
+        <ion-label color="primary">Campaign Name / Title: </ion-label>
+        <ion-input type="text" [(ngModel)]="sms.sender"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary">Message: </ion-label>
+        <ion-textarea type="text" [(ngModel)]="sms.text" rows="2"></ion-textarea>
+    </ion-item>
+    <p style="float:right">Word count: {{sms.text.length}}</p>
+    <ion-list radio-group (ionChange)="onSelectChange($event)" [(ngModel)]="sms.selected">
+        <br/> <br/>
+        <p style="margin-left: 15px;"> Send To:</p>
+        <ion-item>
+            <ion-label>All Clients ( {{clientList.length}} )</ion-label>
+            <ion-radio value="all"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Select Clients: </ion-label>
+            <ion-radio value="find"></ion-radio>
+        </ion-item>
+        <p></p>
+    </ion-list>
+    <div class="button-center">
+        <button ion-button class="button_login" (click)="sendMessage()">Send</button>
+    </div>
+
+</ion-content>
